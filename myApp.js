@@ -14,6 +14,21 @@ const personSchema = new Schema({
 
 const Person = mongoose.model( "Person", personSchema );
 
+// Create and Save a Record of a Model
+const createAndSavePerson = ( done ) => {
+    const person = new Person({
+        name: "Angelique",
+        age: 22,
+        favoriteFoods: [ "Taho", "Boba", "Cheesecake"],
+    })
+    
+    person.save(( error, data ) => {
+        if( error ) return console.error( error );
+
+        done( null, data )
+    })
+}
+
 /** **Well Done !!**
 /* You completed these challenges, let"s go celebrate !
  */
