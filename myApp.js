@@ -21,11 +21,38 @@ const createAndSavePerson = ( done ) => {
         age: 22,
         favoriteFoods: [ "Taho", "Boba", "Cheesecake"],
     })
-    
+
     person.save(( error, data ) => {
         if( error ) return console.error( error );
 
         done( null, data )
+    })
+}
+
+// Create Many Records with model.create()
+const arrayOfPeople = [
+    { 
+        name: "Wesley",
+        age: 13,
+        favoriteFoods: [ "Ramen", "Kinder: Bueno", "Takis" ]
+    },
+    { 
+        name: "Kayla",
+        age: 18,
+        favoriteFoods: [ "Kimchi Fried Rice", "Balut"  ]
+    },
+    { 
+        name: "Chasity",
+        age: 22,
+        favoriteFoods: [ "Birria Tacos", "Steak", "Queso Quesadilla" ]
+    },
+]
+
+const createManyPeople = ( arrayOfPeople, done ) => {
+    Person.create( arrayOfPeople, ( error, people) => {
+        if( error ) return console.log( error );
+        
+        done( null, people );
     })
 }
 
