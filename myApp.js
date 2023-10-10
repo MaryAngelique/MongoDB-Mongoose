@@ -99,6 +99,22 @@ const findEditThenSave = ( personId, done ) => {
     }) 
 }
 
+// Perform New Updates on a Document Using model.findOneAndUpdate()
+const findAndUpdate = ( personName, done ) => {
+    const ageToSet = 20;
+
+    Person.findOneAndUpdate(
+        { name: personName },
+        { age: ageToSet },
+        { new: true },
+        ( error, updateDb ) => {
+            if( error ) return console.log( error );
+            
+            done( null, updateDb)
+        }
+    )
+}
+
 /** **Well Done !!**
 /* You completed these challenges, let"s go celebrate !
  */
