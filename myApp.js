@@ -83,6 +83,22 @@ const findPersonById = ( personId, done ) => {
     })
 }
 
+// Perform Classic Updates by Running Find, Edit, then Save
+const findEditThenSave = ( personId, done ) => {
+    const foodToAdd = "Adobo";
+
+    Person.findById( personId, ( error, person ) => {
+        if( error ) return console.log( error );
+
+        person.favoriteFoods.push( foodToAdd );
+        person.save( ( error, updatedPerson ) => {
+            if( error ) return console.log( error );
+
+            done( null, updatedPerson );
+        })
+    }) 
+}
+
 /** **Well Done !!**
 /* You completed these challenges, let"s go celebrate !
  */
