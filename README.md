@@ -103,3 +103,11 @@ In the good old days, this was what you needed to do if you wanted to edit a doc
 Modify the findOneByFood function to find just one person which has a certain food in the person's favorites, using Model.findOne() -> Person. Use the function argument food as search key.
 
 Modify the findEditThenSave function to find a person by _id (use any of the above methods) with the parameter personId as search key. Add "hamburger" to the list of the person's favoriteFoods (you can use Array.push()). Then - inside the find callback - save() the updated Person.
+
+***
+
+## Perform New Updates on a Document Using model.findOneAndUpdate()
+Recent versions of Mongoose have methods to simplify documents updating. Some more advanced features (i.e. pre/post hooks, validation) behave differently with this approach, so the classic method is still useful in many situations. findByIdAndUpdate() can be used when searching by id.
+
+Modify the findAndUpdate function to find a person by Name and set the person's age to 20. Use the function parameter personName as the search key.
+
