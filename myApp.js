@@ -115,6 +115,15 @@ const findAndUpdate = ( personName, done ) => {
     )
 }
 
+// Delete One Document Using model.findByIdAndRemove
+const removeById = ( personId, done ) => {
+    Person.findByIdAndRemove( personId, ( error, data ) ) => {
+        if( error ) return console.log( error );
+
+        done( null, data );
+    }
+}
+
 /** **Well Done !!**
 /* You completed these challenges, let"s go celebrate !
  */
