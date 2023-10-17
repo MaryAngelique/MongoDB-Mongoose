@@ -135,6 +135,21 @@ const removeManyPeople = ( done ) => {
     })
 }
 
+// Chain Search Query Helpers to Narrow Search Results
+const queryChain = ( done ) => {
+    const foodToSearch = "Ramen";
+
+    Person.find({ favoriteFoods: foodToSearch})
+        .sort( "name" )
+        .limit( 2 )
+        .select([ "name", "favoriteFoods" ])
+        .exec(( error, data ) => {
+            if( error ) return console.log( error );
+
+            done( error, data );
+    })
+} 
+
 /** **Well Done !!**
 /* You completed these challenges, let"s go celebrate !
  */
