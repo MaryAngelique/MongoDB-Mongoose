@@ -124,6 +124,17 @@ const removeById = ( personId, done ) => {
     })
 }
 
+// Delete Many Documents with model.remove()
+const removeManyPeople = ( done ) => {
+    const nameToRemove = "Chasity"
+
+    Person.remove({ name: nameToRemove }, ( error, dataToRemove ) => {
+        if( error ) return console.log( error );
+
+        done( null, dataToRemove );
+    })
+}
+
 /** **Well Done !!**
 /* You completed these challenges, let"s go celebrate !
  */
