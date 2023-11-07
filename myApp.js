@@ -158,7 +158,7 @@ const queryChain = ( done ) => {
         .sort("name")
         .limit(2)
         .select([ "name", "favoriteFoods" ])
-        .exec(( error, data ) +> {
+        .exec(( error, data ) => {
             if( error ) return console.log( error );
             done( error, data );
         })
